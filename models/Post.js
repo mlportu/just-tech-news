@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const { truncate } = require('fs');
+
 
 //create our Post model
 class Post extends Model {}
@@ -29,17 +29,17 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                modle: 'user',
+                model: 'user',
                 key: 'id'
             }
         }
     },
     {
         sequelize,
-        freezeTableName,
-        underscored:true,
+        freezeTableName: true,
+        underscored: true,
         modelName:'post'
     }
-)
+);
 
-module.exports = Post;
+module.exports = Post;      
